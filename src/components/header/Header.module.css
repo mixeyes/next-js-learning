@@ -1,12 +1,21 @@
+.header-wrapper {
+display: flex;
+flex-direction: column;
+width: 100%;
+position: fixed;
+}
+
 .header {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
   top: 0;
   width: 100%;
+  height: 5ch;
+  background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
 }
 
 .links {

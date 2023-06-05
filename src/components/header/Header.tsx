@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import classes from "./Header.module.css";
+import style from "./Header.module.css";
+import { Breadcrumbs } from "../breadcrumbs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,33 +15,36 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const Header = () => {
   return (
-  <div className={classes.header}>
-    <Image
-      src="/app-logo.svg"
-      alt="App Logo"
-      className={classes.vercelLogo}
-      width={100}
-      height={24}
-      priority
-    />
-    <h1 className={inter.className}>E-commerce application</h1>
-    <div className={classes.links}>
-      <a
-        href="/login"
-        className={classes.card}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Login
-      </a>
-      <a
-        href="/cart"
-        className={classes.card}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Cart
-      </a>
+    <div className={style['header-wrapper']}>
+      <div className={style.header}>
+        <Image
+          src="/app-logo.svg"
+          alt="App Logo"
+          className={style.vercelLogo}
+          width={100}
+          height={24}
+          priority
+        />
+        <h1 className={inter.className}>E-commerce application</h1>
+        <div className={style.links}>
+          <a
+            href="/login"
+            className={style.card}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Login
+          </a>
+          <a
+            href="/cart"
+            className={style.card}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Cart
+          </a>
+        </div>
+      </div>
+      <Breadcrumbs rootLabel="Home" />
     </div>
-  </div>
-)};
+  );};
