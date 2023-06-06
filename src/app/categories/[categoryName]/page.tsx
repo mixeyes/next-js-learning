@@ -19,12 +19,4 @@ const CategoryPage: FC<ICategoryPage> = ({ params: { categoryName } }) => {
   );
 };
 
-export async function generateStaticParams() {
-  const data: ICategories = await get('/api/categories');
-
-  return data.map((category: ICategory) => ({
-    categoryName: category.categoryName,
-  }));
-}
-
 export default CategoryPage

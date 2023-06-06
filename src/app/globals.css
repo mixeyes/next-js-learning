@@ -74,7 +74,7 @@
 }
 
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   padding: 0;
   margin: 0;
 }
@@ -95,8 +95,8 @@ body {
     )
     rgb(var(--background-start-rgb));
   margin: 0;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  /* display: grid; */
+  /* grid-template-rows: auto 1fr auto; */
   font-size: 14px;
   align-items: start;
   min-height: 100vh;
@@ -119,3 +119,13 @@ a {
   align-items: flex-start;
 }
 
+.app-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.conent-wrapper {
+  padding-top: 10vh;
+}
