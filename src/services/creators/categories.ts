@@ -6,7 +6,7 @@ export const createCategoriesTable = () => {
 	    "id" SERIAL,
 	    "title" VARCHAR(100) NOT NULL,
 	    "category_name" VARCHAR(100) NOT NULL,
-        "img_url" VARCHAR(100) NOT NULL,
+      "img_url" VARCHAR(100) NOT NULL,
 	    PRIMARY KEY ("id")
     );`;
 
