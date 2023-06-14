@@ -1,17 +1,17 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import style from "./Header.module.css";
-import { Breadcrumbs } from "../breadcrumbs";
+import Image from 'next/image';
+import { Inter } from 'next/font/google';
+import style from './Header.module.css';
+import { Breadcrumbs } from '../breadcrumbs';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
- const items = [
-   { label: "Home", icon: "pi pi-fw pi-home" },
-   { label: "Calendar", icon: "pi pi-fw pi-calendar" },
-   { label: "Edit", icon: "pi pi-fw pi-pencil" },
-   { label: "Documentation", icon: "pi pi-fw pi-file" },
-   { label: "Settings", icon: "pi pi-fw pi-cog" },
- ];
+const items = [
+  { label: 'Home', icon: 'pi pi-fw pi-home' },
+  { label: 'Calendar', icon: 'pi pi-fw pi-calendar' },
+  { label: 'Edit', icon: 'pi pi-fw pi-pencil' },
+  { label: 'Documentation', icon: 'pi pi-fw pi-file' },
+  { label: 'Settings', icon: 'pi pi-fw pi-cog' },
+];
 
 export const Header = () => {
   return (
@@ -47,4 +47,5 @@ export const Header = () => {
       </div>
       <Breadcrumbs rootLabel="Home" />
     </div>
-  );};
+  );
+};

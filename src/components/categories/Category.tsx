@@ -5,8 +5,6 @@ import { ICategory } from '@/interfaces/categories';
 
 export const Category: FC<{ item: ICategory }> = ({ item }) => (
   <div className={style.category}>
-    <Link href={`/categories/${item.categoryName}`}>
-      {item.name}
-    </Link>
+    <Link href={`/categories/${item.categoryName}`}>{item.name}</Link>
   </div>
 );

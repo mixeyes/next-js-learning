@@ -1,12 +1,12 @@
 import { ICategories, ICategory } from '@/interfaces/categories';
 import { get } from '@/utils';
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
 interface ICategoryPage {
   params: {
     categoryName: string;
   };
-};
+}
 
 const CategoryPage: FC<ICategoryPage> = ({ params: { categoryName } }) => {
   // const router = useRouter();
@@ -19,4 +19,4 @@ const CategoryPage: FC<ICategoryPage> = ({ params: { categoryName } }) => {
   );
 };
 
-export default CategoryPage
+export default CategoryPage;

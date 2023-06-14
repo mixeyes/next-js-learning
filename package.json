@@ -7,10 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "format": "prettier ./**/*.{html,ts,tsx,json,md,scss} --check",
+    "format:fix": "npm run format -- --write",
+    "create:db": "ts-node ./src/services/creators"
   },
   "dependencies": {
     "classnames": "^2.3.2",
+    "dotenv": "^16.1.4",
     "next": "^13.4.4",
     "pg": "^8.11.0",
     "react": "^18.2.0",
@@ -19,6 +23,8 @@
   },
   "devDependencies": {
     "@types/node": "^18.16.0",
+    "@types/pg": "^8.10.2",
+    "@types/pg-pool": "^2.0.3",
     "@types/react": "^18.0.38",
     "@types/react-dom": "^18.0.11",
     "@types/uuid": "^9.0.1",
