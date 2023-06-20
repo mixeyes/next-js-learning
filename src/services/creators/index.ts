@@ -1,7 +1,17 @@
-import {createUserTable} from './users';
-import {createDatabase} from './db';
-import {createCategoriesTable} from './categories';
+import { createUserTable } from './users';
+import { createCategoriesTable } from './categories';
+import { addPgCrypto } from './addCrypto';
+import { createDatabase } from './db';
 
-createDatabase();
-createUserTable();
-createCategoriesTable();
+const createDB = async () => {
+  await createDatabase();
+  await createUserTable();
+  await createCategoriesTable();
+  await addPgCrypto();
+};
+createDB()
+  .then(() => console.log('All tables was created!'))
+  .finally(() => {
+    console.log('all tasks were finished');
+    process.exit();
+  });

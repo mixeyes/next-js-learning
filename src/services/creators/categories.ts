@@ -1,6 +1,7 @@
-import { execute } from '../dbConnector';
+import { DBConnector } from '../dbConnector';
 
-export const createCategoriesTable = () => {
+export const createCategoriesTable = async () => {
+  const connector = DBConnector.getInstance();
   const query = `
     CREATE TABLE IF NOT EXISTS "categories" (
 	    "id" SERIAL,
@@ -10,9 +11,9 @@ export const createCategoriesTable = () => {
 	    PRIMARY KEY ("id")
     );`;
 
-  execute(query).then((result: any) => {
+  const result  = await connector.execute(query)
     if (result) {
       console.log('Table categories created');
     }
-  });
+  console.log(' the end category');
 };

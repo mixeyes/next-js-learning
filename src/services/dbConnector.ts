@@ -4,39 +4,44 @@ import Pool from 'pg-pool';
 
 dotenv.config();
 
+export class DBConnector {
+  private static _instance: DBConnector = new DBConnector();
+  private _pool: Pool<Client>;
 
-const port = process?.env?.PGSQL_PORT ? +process?.env?.PGSQL_PORT : undefined;
-const config: PoolConfig = {
-  user: process.env['PGSQL_USER'],
-  host: process.env['PGSQL_HOST'],
-  database: process.env['PGSQL_DATABASE'],
-  password: process.env['PGSQL_PASSWORD'],
-  port,
-};
-
-const createConnection = () => {
-  try {
-    return new Pool(config);
-  } catch (error: any) {
-    throw new Error(error.message);
+  constructor() {
+    if (DBConnector._instance) {
+      throw new Error(
+        'Error: Instantiation failed: Use DBConnector.getInstance() instead of new.'
+      );
+    }
+    const port = process?.env?.PGSQL_PORT
+      ? +process?.env?.PGSQL_PORT
+      : undefined;
+    const config: PoolConfig = {
+      user: process.env['PGSQL_USER'],
+      host: process.env['PGSQL_HOST'],
+      database: process.env['PGSQL_DATABASE'],
+      password: process.env['PGSQL_PASSWORD'],
+      port,
+    };
+    this._pool = new Pool(config);
+    DBConnector._instance = this;
   }
-};
 
-export const execute = async (query: string) => {
-  let pool = null;
-  let client = null;
-  if (!pool) {
-    pool = createConnection();
+  public static getInstance(): DBConnector {
+    return DBConnector._instance;
   }
-  try {
-    client = await pool.connect();
-    const res = await client.query(query);
-    return res.rows;
-  } catch (error) {
-    console.log(error);
-  } finally {
-    await client?.release(true);
-  }
-};
 
-export default execute;
+  public async execute(query: string, values?: string[]) {
+    let client:PoolClient | null = null;
+    try {
+      client = await this._pool.connect();
+      const res = await client.query(query, values);
+      return res.rows;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      client?.release(true);
+    }
+  }
+}

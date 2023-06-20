@@ -1,11 +1,12 @@
-import { execute } from '../dbConnector';
+import { DBConnector } from '../dbConnector';
 
-export const addPgCrypto = () => {
+export const addPgCrypto = async () => {
+  const connector = DBConnector.getInstance();
   const query = 'CREATE EXTENSION pgcrypto';
 
-  execute(query).then((result: any) => {
-    if (result) {
-      console.log('pgcrypto added');
-    }
-  });
+  const result = await connector.execute(query);
+  if (result) {
+    console.log('pgcrypto added');
+  }
+  console.log('the end pgcrypto');
 };
