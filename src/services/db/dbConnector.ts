@@ -1,6 +1,7 @@
 import { Client, PoolClient, PoolConfig } from 'pg';
 import dotenv from 'dotenv';
 import Pool from 'pg-pool';
+import { monitoredMethod } from '@/utils';
 
 dotenv.config();
 
@@ -32,14 +33,15 @@ export class DBConnector {
     return DBConnector._instance;
   }
 
+  @monitoredMethod
   public async execute(query: string, values?: string[]) {
     let client:PoolClient | null = null;
     try {
       client = await this._pool.connect();
       const res = await client.query(query, values);
       return res.rows;
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      throw new Error(error.message);
     } finally {
       client?.release(true);
     }

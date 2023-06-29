@@ -10,7 +10,8 @@
     "lint:fix": "next lint --fix",
     "format": "prettier ./**/*.{html,ts,tsx,json,md,scss} --check",
     "format:fix": "npm run format -- --write",
-    "create:db": "ts-node ./src/services/creators"
+    "create:db": "ts-node ./src/services/db/scripts/createTables",
+    "add-data": "ts-node ./src/services/db/scripts/addData"
   },
   "dependencies": {
     "classnames": "^2.3.2",

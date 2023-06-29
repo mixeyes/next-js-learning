@@ -1,6 +1,7 @@
-import { ICategories, ICategory } from '@/interfaces/categories';
+import { ICategory } from '@/interfaces/categories';
 import { get } from '@/utils';
-import React, { FC } from 'react';
+import React from 'react';
+import Image from 'next/image';
 
 interface ICategoryPage {
   params: {
@@ -8,13 +9,21 @@ interface ICategoryPage {
   };
 }
 
-const CategoryPage: FC<ICategoryPage> = ({ params: { categoryName } }) => {
-  // const router = useRouter();
-  console.log(categoryName);
+const CategoryPage = async ({ params: { categoryName } }: ICategoryPage) => {
+  const data: ICategory = await get(`/api/category/${categoryName}`);
+  console.table(data);
 
-  return (
+  return await (
     <div>
-      <span>Category {categoryName}</span>
+      <Image
+        style={{ width: '25em', height: '15em', margin: 10 }}
+        src={data.imgUrl}
+        alt={data.name}
+        priority
+        width={15}
+        height={25}
+      />
+      <span>{data.name}</span>
     </div>
   );
 };
