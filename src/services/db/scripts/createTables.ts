@@ -1,11 +1,11 @@
-import { createUserTable } from '../models/user';
+import { Users } from '../models/Users';
 import { Categories } from '../models/Categories';
 import { addPgCrypto } from './addCrypto';
 import { createDatabase } from './createDb';
 
 const createDB = async () => {
   await createDatabase();
-  await createUserTable();
+  await Users.getInstance().createUserTable();
   await Categories.getInstance().createCategoriesTable();
   await addPgCrypto();
 };
