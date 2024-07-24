@@ -1,0 +1,4 @@
+npm run lint:quiet
+npm run format:quiet
+#!npm run translations:check
+#!npm run test:coverage

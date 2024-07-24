@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import cl from 'classnames';
 import style from './Footer.module.css';
 
@@ -12,7 +12,7 @@ export const Footer = () => (
       <address>
         5534 Somewhere In. The World 22193-10212
         <br />
-        <a className={style.footer__btn} href="mailto:example@gmail.com">
+        <a className={style.footer__btn} href='mailto:example@gmail.com'>
           Email Us
         </a>
       </address>
@@ -24,15 +24,15 @@ export const Footer = () => (
 
         <ul className={style.nav__ul}>
           <li>
-            <a href="#">Online</a>
+            <a href='#'>Online</a>
           </li>
 
           <li>
-            <a href="#">Print</a>
+            <a href='#'>Print</a>
           </li>
 
           <li>
-            <a href="#">Alternative Ads</a>
+            <a href='#'>Alternative Ads</a>
           </li>
         </ul>
       </li>
@@ -42,27 +42,27 @@ export const Footer = () => (
 
         <ul className={cl(style.nav__ul, style['nav__ul--extra'])}>
           <li>
-            <a href="#">Hardware Design</a>
+            <a href='#'>Hardware Design</a>
           </li>
 
           <li>
-            <a href="#">Software Design</a>
+            <a href='#'>Software Design</a>
           </li>
 
           <li>
-            <a href="#">Digital Signage</a>
+            <a href='#'>Digital Signage</a>
           </li>
 
           <li>
-            <a href="#">Automation</a>
+            <a href='#'>Automation</a>
           </li>
 
           <li>
-            <a href="#">Artificial Intelligence</a>
+            <a href='#'>Artificial Intelligence</a>
           </li>
 
           <li>
-            <a href="#">IoT</a>
+            <a href='#'>IoT</a>
           </li>
         </ul>
       </li>
@@ -72,15 +72,15 @@ export const Footer = () => (
 
         <ul className={style.nav__ul}>
           <li>
-            <a href="#">Privacy Policy</a>
+            <a href='#'>Privacy Policy</a>
           </li>
 
           <li>
-            <a href="#">Terms of Use</a>
+            <a href='#'>Terms of Use</a>
           </li>
 
           <li>
-            <a href="#">Sitemap</a>
+            <a href='#'>Sitemap</a>
           </li>
         </ul>
       </li>

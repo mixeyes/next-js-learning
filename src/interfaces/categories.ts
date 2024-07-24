@@ -1,6 +1,6 @@
 export interface ICategory {
-    name: string;
-    categoryName: string;
+  name: string;
+  categoryName: string;
 }
 
-export type ICategories = Array<ICategory>
+export type ICategories = ICategory[];
